@@ -206,9 +206,9 @@ _(Intentionally removed)_
 | Light background   | `#F8F8F6`                            |
 | Dark background    | `#0F1011`                            |
 | Accent color       | `#F97316`                            |
-| Display font       | Bricolage Grotesque                  |
-| Body font          | Geist                                |
-| Mono font          | Geist Mono                           |
+| Display font       | Sora                                 |
+| Body font          | Inter                                |
+| Mono font          | JetBrains Mono                       |
 | Icon system        | React Icons (Lucide + Phosphor sets) |
 | Base spacing       | 4px system                           |
 | Component approach | shadcn/ui + composition              |
