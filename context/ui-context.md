@@ -6,39 +6,51 @@
 
 ### Light Mode
 
-| Token            | Value                    |
-| ---------------- | ------------------------ |
-| Background       | `#F8F8F6` (cream)        |
-| Surface          | `#FFFFFF`                |
-| Text primary     | `#111110`                |
-| Text secondary   | `#6B7280`                |
-| Border / divider | `#E5E7EB`                |
-| Accent           | `#F97316` (coral orange) |
-| Accent hover     | `#EA6C0A`                |
+| Token                | Value     |
+| -------------------- | --------- |
+| Background           | `#F4F5F2` |
+| Background Secondary | `#ECEEE8` |
+| Surface              | `#FCFCFA` |
+| Surface Elevated     | `#FFFFFF` |
+| Surface Hover        | `#F5F5F3` |
+| Text Primary         | `#121212` |
+| Text Secondary       | `#667085` |
+| Border / Divider     | `#E4E7EC` |
+| Accent               | `#F97316` |
+| Accent Hover         | `#EA6C0A` |
+| Success              | `#16A34A` |
+| Warning              | `#D97706` |
+| Danger               | `#DC2626` |
 
 ---
 
 ### Dark Mode
 
-| Token            | Value     |
-| ---------------- | --------- |
-| Background       | `#0F1011` |
-| Surface          | `#1A1B1E` |
-| Text primary     | `#F5F5F4` |
-| Text secondary   | `#9CA3AF` |
-| Border / divider | `#2C2D30` |
-| Accent           | `#F97316` |
-| Accent hover     | `#FB923C` |
+| Token                | Value     |
+| -------------------- | --------- |
+| Background           | `#0B0D0F` |
+| Background Secondary | `#111315` |
+| Surface              | `#15181B` |
+| Surface Elevated     | `#1B1F24` |
+| Surface Hover        | `#22262C` |
+| Text Primary         | `#F3F4F6` |
+| Text Secondary       | `#98A2B3` |
+| Border / Divider     | `#2A2F36` |
+| Accent               | `#F97316` |
+| Accent Hover         | `#FB923C` |
+| Success              | `#22C55E` |
+| Warning              | `#F59E0B` |
+| Danger               | `#EF4444` |
 
 ---
 
 ## 🔤 Typography
 
-| Role               | Font                  | Usage                                  |
-| ------------------ | --------------------- | -------------------------------------- |
-| Display / Headings | `Bricolage Grotesque` | Large titles, totals, emphasis numbers |
-| Body / UI text     | `Geist`               | General interface text                 |
-| Numbers / Stats    | `Geist Mono`          | Odds, scores, aligned numeric values   |
+| Role               | Font             |
+| ------------------ | ---------------- |
+| Display / Headings | `Sora`           |
+| Body / UI text     | `Inter`          |
+| Numbers / Stats    | `JetBrains Mono` |
 
 ---
 
@@ -124,10 +136,10 @@
 
 **shadcn/ui** — Tailwind-based, headless, fully customisable. Zero opinionated styles — you own every pixel.
 
-| Component | Where it’s used |
-| --------- | --------------- |
-| `Button`  | Header, Slip Panel, Page |
-| `Card`    | Used inside BentoCard base |
+| Component   | Where it’s used                          |
+| ----------- | ---------------------------------------- |
+| `Button`    | Header, Slip Panel, Page                 |
+| `Card`      | Used inside BentoCard base               |
 | `BentoCard` | Main workspace building block for layout |
 
 ---
@@ -159,13 +171,13 @@ Rules:
 
 ### 🎯 Icon Usage
 
-| Use Case | Icon |
-| -------- | ---- |
-| History Button | `LuHistory` |
-| Theme Toggle | `LuSun` / `LuMoon` |
-| Account Menu | `LuUser` |
-| Credits Display | `LuCoins` |
-| Empty Slip State | `LuInbox` |
+| Use Case         | Icon               |
+| ---------------- | ------------------ |
+| History Button   | `LuHistory`        |
+| Theme Toggle     | `LuSun` / `LuMoon` |
+| Account Menu     | `LuUser`           |
+| Credits Display  | `LuCoins`          |
+| Empty Slip State | `LuInbox`          |
 
 ---
 
