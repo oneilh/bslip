@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { BentoCard } from "@/components/layout/BentoCard";
 
 export default function Home() {
   return (
@@ -13,31 +14,35 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         
         {/* Large Card: Main Configuration */}
-        <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-card rounded-xl border shadow-sm p-6 flex flex-col min-h-[300px]">
-          <h2 className="font-semibold text-lg mb-4">Competitions & Markets</h2>
-          <div className="flex-1 bg-muted/20 rounded-lg border border-dashed flex items-center justify-center text-muted-foreground">
+        <BentoCard 
+          title="Competitions & Markets" 
+          className="col-span-1 md:col-span-2 lg:col-span-2 min-h-[300px]"
+        >
+          <div className="h-full w-full bg-muted/20 rounded-lg border border-dashed flex items-center justify-center text-muted-foreground">
             Configuration Area
           </div>
-        </div>
+        </BentoCard>
 
         {/* Medium Card: Presets */}
-        <div className="col-span-1 bg-card rounded-xl border shadow-sm p-6 flex flex-col min-h-[300px]">
-          <h2 className="font-semibold text-lg mb-4">Quick Presets</h2>
-          <div className="flex-1 bg-muted/20 rounded-lg border border-dashed flex items-center justify-center text-muted-foreground">
+        <BentoCard 
+          title="Quick Presets" 
+          className="col-span-1 min-h-[300px]"
+        >
+          <div className="h-full w-full bg-muted/20 rounded-lg border border-dashed flex items-center justify-center text-muted-foreground">
             Presets List
           </div>
-        </div>
+        </BentoCard>
 
         {/* Wide Card: Match Counts / Suggestions */}
-        <div className="col-span-1 md:col-span-2 lg:col-span-3 bg-card rounded-xl border shadow-sm p-6 flex flex-col min-h-[200px]">
-           <div className="flex justify-between items-center mb-4">
-              <h2 className="font-semibold text-lg">Suggestions</h2>
-              <Button variant="outline" size="sm">View All</Button>
-           </div>
-          <div className="flex-1 bg-muted/20 rounded-lg border border-dashed flex items-center justify-center text-muted-foreground">
+        <BentoCard 
+          title="Suggestions" 
+          headerAction={<Button variant="outline" size="sm">View All</Button>}
+          className="col-span-1 md:col-span-2 lg:col-span-3 min-h-[200px]"
+        >
+          <div className="h-full w-full bg-muted/20 rounded-lg border border-dashed flex items-center justify-center text-muted-foreground">
             AI Suggestions or Match Insights
           </div>
-        </div>
+        </BentoCard>
 
       </div>
     </div>

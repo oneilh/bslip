@@ -30,18 +30,20 @@ Use clear bullet points and direct wording.
 
 - Installed and configured shadcn ui
 - Installed react-icons
+- Implemented main layout structure (header, workspace column, slip panel column)
+- Created reusable bento-style cards for the workspace
 
 ---
 
 ## In Progress
 
-- Implementing main layout structure (header, workspace column, slip panel column)
+- Refine slip generation data structures
 
 ---
 
 ## Next Up
 
-- Create reusable bento-style cards for the workspace
+- Create core functionality for picking competitions and configuring strategies
 
 ---
 

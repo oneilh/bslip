@@ -126,7 +126,9 @@
 
 | Component | Where it’s used |
 | --------- | --------------- |
-| `Button`  | Header, Slip Panel (future actions), Page (Suggestions View All) |
+| `Button`  | Header, Slip Panel, Page |
+| `Card`    | Used inside BentoCard base |
+| `BentoCard` | Main workspace building block for layout |
 
 ---
 
