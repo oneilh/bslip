@@ -16,14 +16,13 @@ Use clear bullet points and direct wording.
 
 ## Current Phase
 
-- briefly describe the current development phase
+- Building core app layout
 
 ---
 
 ## Current Goal
 
-- write the immediate implementation goal
-- keep it specific and actionable
+- Implement responsive web app layout based on 02-webapp-layout.md
 
 ---
 
@@ -36,15 +35,13 @@ Use clear bullet points and direct wording.
 
 ## In Progress
 
-- list what is actively being worked on
-- keep it implementation-focused
+- Implementing main layout structure (header, workspace column, slip panel column)
 
 ---
 
 ## Next Up
 
-- list the next planned feature or task
-- order by priority if needed
+- Create reusable bento-style cards for the workspace
 
 ---
 
