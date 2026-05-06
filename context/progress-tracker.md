@@ -39,6 +39,7 @@ Use clear bullet points and direct wording.
 ## In Progress
 
 - Refine slip generation data structures
+- Fix mobile layout scrolling issues (overflow-y)
 
 ---
 
