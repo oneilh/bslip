@@ -32,6 +32,7 @@ Use clear bullet points and direct wording.
 - Installed react-icons
 - Implemented main layout structure (header, workspace column, slip panel column)
 - Created reusable bento-style cards for the workspace
+- Restructured layout: Moved Your Slip to left, removed Suggestions UI, removed header navigation, and grouped Competitions/Presets into a Discover container
 
 ---
 

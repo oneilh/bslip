@@ -35,15 +35,15 @@ export default function RootLayout({
         
         {/* Main Application Area */}
         <div className="flex-1 flex max-w-[1440px] mx-auto w-full h-[calc(100vh-64px)]">
-          {/* Main Workspace Column */}
+          {/* Slip Panel Column (Your Slip) - Moved to Left */}
+          <aside className="hidden md:flex w-[35%] lg:w-[30%] shrink-0 h-full p-6 pr-0">
+            <SlipPanel />
+          </aside>
+
+          {/* Main Workspace Column (Discover/Selection Container) */}
           <main className="flex-1 flex flex-col w-full h-full overflow-y-auto px-4 md:px-6 py-6 lg:w-[70%] md:w-[65%]">
             {children}
           </main>
-          
-          {/* Slip Panel Column (Hidden on Mobile) */}
-          <aside className="hidden md:flex w-[35%] lg:w-[30%] shrink-0 h-full p-6 pl-0">
-            <SlipPanel />
-          </aside>
         </div>
 
         {/* Mobile Floating Action Bar (Visible only on mobile when slip has items) */}

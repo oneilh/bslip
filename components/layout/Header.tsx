@@ -13,19 +13,8 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Center: Navigation (Desktop only) */}
+        {/* Center: Empty (Navigation removed) */}
         <div className="hidden md:flex flex-1 justify-center">
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-foreground/80 hover:text-foreground transition-colors">
-              Builder
-            </Link>
-            <Link href="/strategies" className="text-foreground/80 hover:text-foreground transition-colors">
-              Strategies
-            </Link>
-            <Link href="/explore" className="text-foreground/80 hover:text-foreground transition-colors">
-              Explore
-            </Link>
-          </nav>
         </div>
 
         {/* Right: Actions */}
