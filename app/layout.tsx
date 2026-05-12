@@ -3,6 +3,7 @@ import { Sora, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import SlipPanel from "@/components/layout/SlipPanel";
+import ViewSlipMobile from "@/components/layout/ViewSlipMobile";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -53,15 +54,7 @@ export default function RootLayout({
         </div>
 
         {/* Mobile Floating Action Bar (Visible only on mobile when slip has items) */}
-        <div className="md:hidden fixed bottom-4 left-4 right-4 z-50">
-           <div className="bg-primary text-primary-foreground shadow-lg rounded-lg px-6 py-3 flex items-center justify-between font-medium">
-              <span>3 Legs Added</span>
-              <div className="flex items-center gap-2">
-                 <span className="text-primary-foreground/80">•</span>
-                 <span>View Slip</span>
-              </div>
-           </div>
-        </div>
+        <ViewSlipMobile />
       </body>
     </html>
   );

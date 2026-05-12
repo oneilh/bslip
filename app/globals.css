@@ -22,6 +22,7 @@
     --color-chart-2: var(--chart-2);
     --color-chart-1: var(--chart-1);
     --color-ring: var(--ring);
+    --color-ring-light: var(--ring-light);
     --color-input: var(--input);
     --color-border: var(--border);
     --color-destructive: var(--destructive);
@@ -33,6 +34,7 @@
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
+    --color-primary-light: var(--primary-light);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
     --color-card-foreground: var(--card-foreground);
@@ -67,6 +69,8 @@
     --border: #E4E7EC;
     --input: #E4E7EC;
     --ring: #F97316;
+    --ring-light: #FFEDD5;
+    --primary-light: #FFEDD5;
     --chart-1: #16A34A;
     --chart-2: #D97706;
     --chart-3: oklch(0.439 0 0);
@@ -102,6 +106,8 @@
     --border: #2A2F36;
     --input: #2A2F36;
     --ring: #F97316;
+    --ring-light: #FFEDD5;
+    --primary-light: #FFEDD5;
     --chart-1: #22C55E;
     --chart-2: #F59E0B;
     --chart-3: oklch(0.439 0 0);

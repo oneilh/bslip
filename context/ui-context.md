@@ -18,6 +18,7 @@
 | Border / Divider     | `#E4E7EC` |
 | Accent               | `#F97316` |
 | Accent Hover         | `#EA6C0A` |
+| Accent Light         | `#FFEDD5` |
 | Success              | `#16A34A` |
 | Warning              | `#D97706` |
 | Danger               | `#DC2626` |
@@ -38,6 +39,7 @@
 | Border / Divider     | `#2A2F36` |
 | Accent               | `#F97316` |
 | Accent Hover         | `#FB923C` |
+| Accent Light         | `#FFEDD5` |
 | Success              | `#22C55E` |
 | Warning              | `#F59E0B` |
 | Danger               | `#EF4444` |
@@ -136,11 +138,12 @@
 
 **shadcn/ui** — Tailwind-based, headless, fully customisable. Zero opinionated styles — you own every pixel.
 
-| Component   | Where it’s used                          |
-| ----------- | ---------------------------------------- |
-| `Button`    | Header, Slip Panel, Page                 |
-| `Card`      | Used inside BentoCard base               |
-| `BentoCard` | Main workspace building block for layout |
+| Component        | Where it’s used                          |
+| ---------------- | ---------------------------------------- |
+| `Button`         | Header, Slip Panel, Page                 |
+| `Card`           | Used inside BentoCard base               |
+| `BentoCard`      | Main workspace building block for layout |
+| `ViewSlipMobile` | Root layout mobile floating action bar   |
 
 ---
 

@@ -33,6 +33,7 @@ Use clear bullet points and direct wording.
 - Implemented main layout structure (header, workspace column, slip panel column)
 - Created reusable bento-style cards for the workspace
 - Restructured layout: Moved Your Slip to left, removed Suggestions UI, removed header navigation, and grouped Competitions/Presets into a Discover container
+- Updated ViewSlip mobile component styling to use the light orange brand accent color background (`--ring-light`) and matching dark border (`--foreground`) via proper CSS variables
 
 ---
 
