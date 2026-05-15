@@ -38,3 +38,25 @@ Whenever a component or icon is used or created in the web app, you MUST update 
 ### Goal:
 
 `ui-context.md` should always reflect the **real, current UI implementation state**, not design intent.
+
+---
+
+## 🛠️ Agent Skills Registry
+
+The following skills are installed in `.agents/skills/`. Read the relevant `SKILL.md` **before starting any task** that matches the trigger condition. Skills have full agent permissions — use them smartly.
+
+| Skill | Trigger Condition |
+|---|---|
+| `web-design-guidelines` | UI audit, accessibility check, or design review request |
+| `vercel-react-best-practices` | Writing or refactoring any React component or Next.js page |
+| `vercel-composition-patterns` | Component API design, compound components, boolean prop review |
+| `ui-ux-pro-max` | **Every UI task** — components, layout, colour, typography, spacing, animation |
+| `ui-animation` | Any motion, transition, dropdown/modal open-close, or gesture work |
+
+### Non-negotiable Rules
+
+- `ui-ux-pro-max` §1 (Accessibility) and §6 (Contrast) must be satisfied on every component.
+- All animations must comply with `ui-animation` easing defaults (see its SKILL.md table).
+- Never use `transition: all`. Never animate layout properties (`width`, `height`, `top`, `left`).
+- Avatar / icon buttons must have an explicit `aria-label`. Colour must never be a CSS variable that risks blending with the background — use explicit hex when identity requires it.
+

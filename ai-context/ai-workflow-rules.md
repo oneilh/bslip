@@ -70,3 +70,25 @@ Progress state must reflect the actual state of the codebase, not the intended s
 1. The current unit works end to end within its defined scope.
 2. No invariant defined in `architecture-context.md` was violated.
 3. `progress-tracker.md` reflects the completed work.
+
+---
+
+## 🛠️ Agent Skills Registry
+
+Skills are installed in `.agents/skills/`. Read the relevant `SKILL.md` before any task that matches the trigger below.
+
+| Skill | Path | When to Invoke |
+|---|---|---|
+| `web-design-guidelines` | `.agents/skills/web-design-guidelines/` | UI audit, accessibility review, checking components against Web Interface Guidelines |
+| `vercel-react-best-practices` | `.agents/skills/vercel-react-best-practices/` | Writing or refactoring React/Next.js components, data fetching, bundle optimisation, performance review |
+| `vercel-composition-patterns` | `.agents/skills/vercel-composition-patterns/` | Designing or refactoring component APIs, avoiding boolean prop proliferation, compound components |
+| `ui-ux-pro-max` | `.agents/skills/ui-ux-pro-max/` | **Any UI task** — creating/editing components, choosing colours/fonts/spacing, reviewing visual quality, accessibility, animation |
+| `ui-animation` | `.agents/skills/ui-animation/` | Adding or reviewing motion — transitions, spring physics, dropdown/modal animations, gestures |
+
+### Usage Rules
+
+- `ui-ux-pro-max` and `ui-animation` must be consulted on **every UI component** created or modified.
+- `vercel-react-best-practices` must be consulted when writing any new React component or data-fetching logic.
+- `web-design-guidelines` must be run as an audit before any UI is considered complete.
+- `vercel-composition-patterns` must be consulted when a component receives more than 2 boolean props.
+
