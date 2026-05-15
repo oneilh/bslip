@@ -40,7 +40,29 @@ Supabase manages sessions, refresh tokens, and user metadata.
 - After login → **redirect to `/`**
 - Can see:
   - **Credit balance**
-  - **User menu** (profile, logout)
+  - **User menu** (email display, sign out)
+
+---
+
+## 👤 User Menu Spec
+
+### Trigger
+- Displayed in the Header **only when authenticated**
+- Shown as an **avatar button** containing the user's email initial (e.g. `J` for `john@example.com`)
+- Accent colour background (`#F97316`), white text
+
+### Dropdown Contents
+| Section | Content |
+|---|---|
+| Info header | "Signed in as" label + user email (truncated) |
+| Action | Sign out (with loading state: "Signing out…") |
+
+### Behaviour
+- Opens/closes on avatar click
+- Closes on click outside the menu
+- Closes on `Escape` key
+- Sign out calls `supabase.auth.signOut()` then closes dropdown
+- After sign out: middleware clears session cookie, `onAuthStateChange` updates context, Header returns to unauthenticated state
 
 ---
 
@@ -94,13 +116,15 @@ Supabase manages sessions, refresh tokens, and user metadata.
 - [ ] Magic link works  
 - [ ] Google OAuth works  
 - [ ] Session persists  
-- [ ] Logout clears session  
+- [x] Logout clears session  
 
 ### UI / UX
 - [ ] Modal matches theme  
-- [ ] Modal opens from navbar  
+- [x] Modal opens from navbar  
 - [ ] Modal opens on protected actions  
-- [ ] Full `/signin` and `/signup` pages exist  
+- [x] Full `/signin` and `/signup` pages exist
+- [x] User menu dropdown with email + sign out visible when authenticated
+- [x] Credits display hidden for unauthenticated users  
 
 ### Routing
 - [ ] Non-auth users can browse homepage  

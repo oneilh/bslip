@@ -146,6 +146,7 @@
 | `ViewSlipMobile` | Root layout mobile floating action bar   |
 | `AuthProvider`   | Root layout managing global auth context |
 | `AuthModal`      | Root layout backdrop authentication UI   |
+| `UserMenu`       | Header dropdown: email display + sign out |
 
 ---
 
@@ -186,6 +187,7 @@ Rules:
 | Auth Email Input | `LuMail`           |
 | Success Status   | `LuCircleCheck`    |
 | Loading Spinners | `LuLoader`         |
+| Sign Out Action  | `LuLogOut`         |
 
 ---
 
