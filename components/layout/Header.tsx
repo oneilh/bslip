@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { LuHistory, LuSun, LuMoon, LuUser, LuCoins } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/components/auth/AuthProvider";
 
 export default function Header() {
+  const { user, isLoading, openModal, signOut } = useAuth();
+
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-16 items-center px-4 md:px-6">
@@ -19,29 +24,54 @@ export default function Header() {
 
         {/* Right: Actions */}
         <div className="flex flex-1 items-center justify-end gap-2 md:gap-4 w-1/3">
-          {/* Credits Display */}
-          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary rounded-lg text-sm font-medium">
-            <LuCoins className="text-primary h-4 w-4" /> 
-            <span>1,200</span>
-          </div>
-          
-          {/* History Button */}
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
-            <LuHistory className="h-5 w-5" />
-            <span className="sr-only">History</span>
-          </Button>
-          
-          {/* Theme Toggle (Hidden on Mobile) */}
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hidden md:inline-flex">
-            <LuMoon className="h-5 w-5" />
-            <span className="sr-only">Toggle theme</span>
-          </Button>
+          {isLoading ? (
+            <div className="h-8 w-20 bg-muted animate-pulse rounded-lg" />
+          ) : user ? (
+            <>
+              {/* Credits Display */}
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary rounded-lg text-sm font-medium">
+                <LuCoins className="text-primary h-4 w-4" /> 
+                <span>1,200</span>
+              </div>
+              
+              {/* History Button */}
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+                <LuHistory className="h-5 w-5" />
+                <span className="sr-only">History</span>
+              </Button>
+              
+              {/* Theme Toggle (Hidden on Mobile) */}
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hidden md:inline-flex">
+                <LuMoon className="h-5 w-5" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
 
-          {/* Account Menu */}
-          <Button variant="outline" size="icon" className="rounded-full border-muted">
-            <LuUser className="h-4 w-4" />
-            <span className="sr-only">Account menu</span>
-          </Button>
+              {/* Account Menu */}
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-full border-muted"
+                onClick={() => signOut()}
+                title="Sign out"
+              >
+                <LuUser className="h-4 w-4" />
+                <span className="sr-only">Sign out</span>
+              </Button>
+            </>
+          ) : (
+            <>
+              {/* Theme Toggle (Hidden on Mobile) */}
+              <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground hidden md:inline-flex">
+                <LuMoon className="h-5 w-5" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+
+              {/* Sign In Button */}
+              <Button onClick={() => openModal("signin")} size="sm" className="bg-[#F97316] hover:bg-[#EA6C0A] text-white">
+                Sign in
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>

@@ -144,6 +144,8 @@
 | `Card`           | Used inside BentoCard base               |
 | `BentoCard`      | Main workspace building block for layout |
 | `ViewSlipMobile` | Root layout mobile floating action bar   |
+| `AuthProvider`   | Root layout managing global auth context |
+| `AuthModal`      | Root layout backdrop authentication UI   |
 
 ---
 
@@ -181,6 +183,9 @@ Rules:
 | Account Menu     | `LuUser`           |
 | Credits Display  | `LuCoins`          |
 | Empty Slip State | `LuInbox`          |
+| Auth Email Input | `LuMail`           |
+| Success Status   | `LuCircleCheck`    |
+| Loading Spinners | `LuLoader`         |
 
 ---
 
