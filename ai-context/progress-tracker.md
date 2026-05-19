@@ -16,13 +16,13 @@ Use clear bullet points and direct wording.
 
 ## Current Phase
 
-- Completing Supabase Authentication UX
+- Auth UX complete — moving to core slip builder foundation
 
 ---
 
 ## Current Goal
 
-- Complete the authenticated user experience: user menu dropdown, sign out flow, and credits visibility gate.
+- Build the slip builder UI: competition picker, strategy filter, and Generate Slip wired to the real API route.
 
 ---
 
@@ -44,14 +44,15 @@ Use clear bullet points and direct wording.
 
 ## In Progress
 
-- Auth UX polish: credits visibility gate verified, protected action → modal trigger pattern
+- Slip builder UI: competition picker and strategy filter components
 
 ---
 
 ## Next Up
 
-- Wire protected actions (e.g. Generate Slip button) to trigger auth modal when unauthenticated
-- Create core functionality for picking competitions and configuring strategies
+- Build competition picker (8 supported leagues, select 1–3)
+- Build strategy filter panel (market + frequency + scope + optional H2H)
+- Wire `POST /api/slips/preview` to show match count before generation
 
 ---
 

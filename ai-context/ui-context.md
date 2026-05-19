@@ -147,6 +147,7 @@
 | `AuthProvider`   | Root layout managing global auth context |
 | `AuthModal`      | Root layout backdrop authentication UI   |
 | `UserMenu`       | Header dropdown: email display + sign out |
+| `SlipPanel`      | Left sidebar: empty state + Generate CTA  |
 
 ---
 
@@ -184,10 +185,11 @@ Rules:
 | Account Menu     | `LuUser`           |
 | Credits Display  | `LuCoins`          |
 | Empty Slip State | `LuInbox`          |
-| Auth Email Input | `LuMail`           |
-| Success Status   | `LuCircleCheck`    |
-| Loading Spinners | `LuLoader`         |
-| Sign Out Action  | `LuLogOut`         |
+| Auth Email Input   | `LuMail`           |
+| Success Status     | `LuCircleCheck`    |
+| Loading Spinners   | `LuLoader`         |
+| Sign Out Action    | `LuLogOut`         |
+| Generate Slip CTA  | `LuZap`            |
 
 ---
 

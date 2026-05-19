@@ -121,7 +121,7 @@ Supabase manages sessions, refresh tokens, and user metadata.
 ### UI / UX
 - [ ] Modal matches theme  
 - [x] Modal opens from navbar  
-- [ ] Modal opens on protected actions  
+- [x] Modal opens on protected actions  
 - [x] Full `/signin` and `/signup` pages exist
 - [x] User menu dropdown with email + sign out visible when authenticated
 - [x] Credits display hidden for unauthenticated users  
