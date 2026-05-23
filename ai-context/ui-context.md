@@ -99,34 +99,56 @@
 ## 📐 Responsive Breakpoints
 
 ### Mobile `< 640px`
-- Padding: `16px`, single-column structure
+- Padding: `16px`, single-column stack layout
+- Slip Panel hidden (accessible via floating bar)
 
 ### Tablet `640px – 1024px`
-- Increased horizontal density, wider components
+- 2-column CSS Grid: `[1fr 320px]`
+- Strategy Config + Presets stacked in main column
+- Slip Panel visible as narrow sidebar
 
 ### Desktop `> 1024px`
-- Max width: `1440px`, multi-zone spacing, strong hierarchy
+- Max width: `360` (`1440px`), 2-column grid layout
+- Main column: nested 2/3 + 1/3 grid for Strategy Config + Presets
+- Slip Panel: fixed 320px sidebar
+- Multi-zone spacing, strong hierarchy
 
 ---
 
 ## 📦 Component Library
 
-| Component           | Where it's used                          |
-| ------------------- | ---------------------------------------- |
-| `Button`            | Header, Slip Panel, Page                 |
-| `Card`              | Used inside BentoCard base               |
-| `BentoCard`         | Main workspace building block for layout |
-| `ViewSlipMobile`    | Mobile floating bar (generated slip only) |
-| `AuthProvider`      | Global auth context                      |
-| `AuthModal`         | Backdrop authentication UI               |
-| `UserMenu`          | Header dropdown: email + sign out        |
-| `SlipPanel`         | Sidebar: strategy summary + generated slip |
-| `SlipBuilderProvider` | Workspace strategy state management    |
-| `CompetitionPicker` | Selecting active competitions            |
-| `MarketSelector`    | Choosing market type and selections       |
-| `StrategyFilters`   | Frequency, scope, target picks            |
-| `H2HFilter`         | H2H toggle + threshold                    |
-| `PresetLoader`      | Quick preset templates                    |
+| Component             | Where it's used                          |
+| --------------------- | ---------------------------------------- |
+| `Button`              | Header, Slip Panel, Page                 |
+| `Card`                | shadcn/ui base card (available but unused directly) |
+| `ViewSlipMobile`      | Mobile floating bar (generated slip only) |
+| `AuthProvider`        | Global auth context                      |
+| `AuthModal`           | Backdrop authentication UI               |
+| `UserMenu`            | Header dropdown: email + sign out        |
+| `SlipPanel`           | Sidebar: strategy summary + generated slip |
+| `SlipBuilderProvider` | Workspace strategy state management      |
+| `CompetitionPicker`   | Selecting active competitions            |
+| `MarketSelector`      | Choosing market type and selections      |
+| `StrategyFilters`     | Frequency, scope, target picks           |
+| `H2HFilter`           | H2H toggle + threshold                   |
+| `PresetLoader`        | Quick preset templates                   |
+
+---
+
+## 🧱 Layout Architecture
+
+### Root Layout (`app/layout.tsx`)
+- **Grid**: `grid-cols-1 md:grid-cols-[1fr_320px]`
+- Mobile: single column (SlipPanel hidden)
+- Tablet+: main content area + 320px sidebar for SlipPanel
+- Max width: `max-w-360` centered
+
+### Page Layout (`app/page.tsx`)
+- **Nested Grid**: `grid-cols-1 lg:grid-cols-3` inside main area
+- Strategy Config: `col-span-1 lg:col-span-2` (larger share)
+- Presets: `col-span-1` (smaller share)
+- Both wrapped in `bg-card border rounded-[10px]` card containers
+- No BentoCard wrappers — reduced nesting
 
 ---
 

@@ -62,9 +62,9 @@ export default function SlipPanel() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-card rounded-2xl border shadow-md overflow-hidden transition-all duration-200">
+    <div className="flex flex-col h-full bg-card rounded-xl border overflow-hidden transition-all duration-200">
       {/* Header */}
-      <div className="p-4 border-b bg-muted/20 flex items-center justify-between">
+      <div className="p-4 border-b border-border/40 flex items-center justify-between">
         <h2 className="font-semibold text-lg font-sora">Your Slip</h2>
         {generatedSlip && (
           <button
@@ -257,7 +257,7 @@ export default function SlipPanel() {
       </div>
 
       {/* Footer — Generate CTA */}
-      <div className="p-4 border-t bg-muted/10">
+      <div className="p-4 border-t border-border/40">
         {generationError && (
           <div className="mb-3 flex items-start gap-2 p-3 bg-red-500/10 border border-red-500/20 text-red-600 rounded-xl text-xs">
             <LuTriangleAlert className="h-4 w-4 shrink-0 mt-0.5" />

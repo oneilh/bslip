@@ -17,6 +17,7 @@ Use clear bullet points and direct wording.
 ## Current Phase
 
 - Phase 1 UX/Architecture fixes complete
+- Layout/Spacing Refactor complete
 
 ---
 
@@ -70,6 +71,18 @@ Use clear bullet points and direct wording.
 - Integrated `H2HFilter` into `StrategyFilters` section
 - Added H2H state (`h2hEnabled`, `h2hThreshold`) to `SlipBuilderContext.tsx`
 - Updated Strategy Summary in SlipPanel to show H2H enabled/disabled status
+
+**Layout/Spacing Refactor:**
+- Replaced root-level flex layout with CSS Grid (`grid-cols-1 md:grid-cols-[1fr_320px]`)
+- Replaced percentage-based sidebar sizing with fixed 320px SlipPanel width
+- Removed BentoCard wrappers from page.tsx — components sit directly in grid
+- Removed outer `bg-card/30 border rounded-2xl` Discover container wrapper
+- Wrapped Strategy Config and Presets in lightweight `bg-card border rounded-[10px]` containers
+- Applied nested 3-column grid (`lg:grid-cols-3`) for Strategy Config (2 cols) + Presets (1 col)
+- Lightened SlipPanel container styling: rounded-xl instead of rounded-2xl, removed shadow-md, softer borders
+- Increased page header gap from gap-6 to gap-8 for better breathing room
+- Added responsive sidebar overflow handling (md:overflow-y-auto)
+- Removed unused BentoCard component from imports
 
 ---
 
