@@ -6,6 +6,7 @@ import SlipPanel from "@/components/layout/SlipPanel";
 import ViewSlipMobile from "@/components/layout/ViewSlipMobile";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { SlipBuilderProvider } from "@/components/builder/SlipBuilderContext";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -39,26 +40,28 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <AuthProvider>
-          <Header />
-          
-          {/* Main Application Area */}
-          <div className="flex-1 flex max-w-[1440px] mx-auto w-full md:h-[calc(100vh-64px)]">
+          <SlipBuilderProvider>
+            <Header />
+            
+            {/* Main Application Area */}
+            <div className="flex-1 flex max-w-[1440px] mx-auto w-full md:h-[calc(100vh-64px)]">
 
-            {/* Main Workspace Column (Discover/Selection Container) */}
-            <main className="flex-1 flex flex-col w-full md:h-full md:overflow-y-auto px-4 md:px-6 py-6 lg:w-[70%] md:w-[65%]">
-              {children}
-            </main>
-            {/* Slip Panel Column (Your Slip) - Moved to Left */}
-            <aside className="hidden md:flex w-[35%] lg:w-[30%] shrink-0 h-full p-6 pr-0">
-              <SlipPanel />
-            </aside>
-          </div>
+              {/* Main Workspace Column (Discover/Selection Container) */}
+              <main className="flex-1 flex flex-col w-full md:h-full md:overflow-y-auto px-4 md:px-6 py-6 lg:w-[70%] md:w-[65%]">
+                {children}
+              </main>
+              {/* Slip Panel Column (Your Slip) - Moved to Left */}
+              <aside className="hidden md:flex w-[35%] lg:w-[30%] shrink-0 h-full p-6 pr-0">
+                <SlipPanel />
+              </aside>
+            </div>
 
-          {/* Mobile Floating Action Bar */}
-          <ViewSlipMobile />
+            {/* Mobile Floating Action Bar */}
+            <ViewSlipMobile />
 
-          {/* Global Backdrop Dialogue Modal */}
-          <AuthModal />
+            {/* Global Backdrop Dialogue Modal */}
+            <AuthModal />
+          </SlipBuilderProvider>
         </AuthProvider>
       </body>
     </html>

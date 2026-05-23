@@ -1,0 +1,113 @@
+"use client";
+
+import React from "react";
+import { useSlipBuilder } from "./SlipBuilderContext";
+import { LuCheck, LuLock, LuCircleAlert } from "react-icons/lu";
+import { PiSoccerBall } from "react-icons/pi";
+import { cn } from "@/lib/utils";
+
+interface League {
+  code: string;
+  name: string;
+  country: string;
+  active: boolean;
+}
+
+const LEAGUES: League[] = [
+  { code: "EPL", name: "Premier League", country: "ENG", active: true },
+  { code: "LaLiga", name: "La Liga", country: "ESP", active: true },
+  { code: "SerieA", name: "Serie A", country: "ITA", active: true },
+  { code: "Bundesliga", name: "Bundesliga", country: "GER", active: false },
+  { code: "Ligue1", name: "Ligue 1", country: "FRA", active: false },
+  { code: "UCL", name: "Champions League", country: "EUR", active: false },
+  { code: "UEL", name: "Europa League", country: "EUR", active: false },
+  { code: "Eredivisie", name: "Eredivisie", country: "NED", active: false },
+];
+
+export default function CompetitionPicker() {
+  const { competitions, toggleCompetition, presetLocked, competitionError } =
+    useSlipBuilder();
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+        <h3 className="font-semibold text-base font-sora">1. Select Competitions</h3>
+        <span className="text-xs text-muted-foreground">
+          Select 1 to 3 active leagues
+        </span>
+      </div>
+
+      {/* Warning Message */}
+      {competitionError && (
+        <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/20 text-red-600 rounded-lg text-sm transition-all duration-200 animate-in fade-in slide-in-from-top-1">
+          <LuCircleAlert className="h-4 w-4 shrink-0" />
+          <span className="font-medium">{competitionError}</span>
+        </div>
+      )}
+
+      {/* League Selection Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+        {LEAGUES.map((league) => {
+          const isSelected = competitions.includes(league.code);
+          const isDisabled = !league.active || presetLocked;
+
+          return (
+            <button
+              key={league.code}
+              type="button"
+              disabled={isDisabled}
+              onClick={() => toggleCompetition(league.code)}
+              className={cn(
+                "relative flex flex-col justify-between p-3.5 rounded-xl border text-left transition-all duration-200",
+                "h-24 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                league.active
+                  ? "cursor-pointer bg-card hover:bg-surface-hover hover:border-muted-foreground/30 active:scale-[0.98]"
+                  : "bg-muted/10 border-border/40 opacity-55 cursor-not-allowed",
+                isSelected && league.active
+                  ? "border-[#F97316] bg-[#FFEDD5]/10 shadow-[0_0_0_1px_#F97316] dark:bg-accent/5"
+                  : "border-border"
+              )}
+            >
+              {/* Top Row: League Code & Badge / Lock */}
+              <div className="flex items-center justify-between w-full">
+                <span className="font-mono text-xs font-semibold text-muted-foreground">
+                  {league.code}
+                </span>
+
+                {league.active ? (
+                  isSelected && (
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F97316] text-white">
+                      <LuCheck className="h-3 w-3" />
+                    </span>
+                  )
+                ) : (
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-muted text-muted-foreground" title="Coming soon">
+                    <LuLock className="h-3 w-3" />
+                  </span>
+                )}
+              </div>
+
+              {/* Bottom Row: Name & Country */}
+              <div className="mt-auto space-y-0.5">
+                <div className="flex items-center gap-1.5">
+                  <PiSoccerBall
+                    className={cn(
+                      "h-4 w-4 shrink-0",
+                      isSelected ? "text-[#F97316]" : "text-muted-foreground"
+                    )}
+                  />
+                  <p className="font-semibold text-xs leading-none tracking-tight">
+                    {league.name}
+                  </p>
+                </div>
+                <p className="text-[10px] text-muted-foreground font-mono">
+                  {league.country}
+                </p>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

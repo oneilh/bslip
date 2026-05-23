@@ -83,40 +83,43 @@ How it works: Pick competitions → Set rules → bslip finds qualifiers → Gen
 
 ### Slip Builder — Step Flow
 
-1. Pick 1–3 competitions from 8 supported leagues
-2. Choose slip size (2–8 legs)
-3. Set your strategy filter (market + frequency)
-4. **Preview match count before spending** — shows "Found X matches, need Y" with suggestions if too few
-5. Choose market mode — single market or bet builder
-6. Hit Generate — credits deducted only if generation succeeds
+1. Pick 1–3 competitions (Phase 1 supports 3 active: Premier League, La Liga, Serie A. Attempting a 4th selection is blocked with a warning).
+2. Choose slip size (2–8 legs, capped at 8 legs/matches max).
+3. Set your strategy filter (market + frequency + scope).
+4. **Preview match count before spending** — shows "Found X matches, need Y" (or matching warning alerts: low volume under 4, disable under 2) so users fix before they spend.
+5. Choose market mode — single market or bet builder (AND logic, auth-gated).
+6. Hit Generate — credits deducted only if generation succeeds.
 
 ---
 
 ### Strategy Filters
 
-- Pick a market (e.g. BTTS, Over 2.5 goals)
-- Set how often it must have hit — e.g. "4 of last 6 games"
-- Choose scope: both teams (default) or either team
-- Choose form type: all games (default), home only, or away only
-- Optional: add H2H (head-to-head) history check
-- If too few matches found — lower the frequency, switch to "either team", or remove H2H
+- **Leagues**: Select 1–3 active leagues (EPL, LaLiga, SerieA). Min 1, Max 3.
+- **Markets**: BTTS, Over 1.5 Goals, Over 2.5 Goals, Under 2.5 Goals.
+- **Frequency**: 3_of_last_5, 4_of_last_5, 4_of_last_6, 5_of_last_6.
+- **Form Scope**: home, away, both.
+- **Market Logic**: Single Market (one selection active) or Bet Builder (AND logic across multiple selections).
+- **H2H history check**: Optional (credit-gated).
 
 ---
 
 ### Filter Preset Templates
 
-- Pre-built filter packs — one click loads everything
-- Replaces current filters entirely (clean slate, not merged)
-- Fully editable after loading
-- Unavailable competitions are greyed out with a tooltip
-- **"Load last filters" button** — reloads competition, strategy, and market from your last successful generation
-  - If no previous generation exists, loads **Safe Acca** preset as default
+- Pre-built filter packs — one click loads everything.
+- Replaces current filters entirely (clean slate, not merged).
+- Fully locks all manual controls when loaded. Only clearing the preset unlocks manual editing.
+- Unavailable competitions are greyed out with a tooltip.
+- **"Load last filters" button** — reloads competition, strategy, and market from your last successful generation.
+  - If no previous generation exists, loads **Safe Acca** preset as default.
 
 **Built-in presets:**
 
-- **Safe Acca** — BTTS in 4 of last 6, both teams
-- **Goals Fest** — Over 2.5 goals in 3 of last 6
-- **Value Finder** — Team form + H2H history combined
+- **Safe Acca** — Over 1.5 Goals, Frequency: 4_of_last_5, Scope: both, Bet Builder: disabled.
+- **Goals Fest** — Over 2.5 Goals, Frequency: 4_of_last_6, Scope: both, Bet Builder: disabled.
+- **Value Finder** — BTTS, Frequency: 3_of_last_5, Scope: both, Bet Builder: disabled.
+- **Clean Sheet Hunt** — Under 2.5 Goals, Frequency: 4_of_last_5, Scope: both, Bet Builder: disabled.
+- **Bet Builder Starter** — BTTS + Over 2.5 Goals, Frequency: 4_of_last_5, Scope: both, Bet Builder: enabled (exactly 2 markets).
+
 
 ---
 
