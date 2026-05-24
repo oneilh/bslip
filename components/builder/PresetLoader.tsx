@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useSlipBuilder, PRESETS } from "./SlipBuilderContext";
 import { cn } from "@/lib/utils";
-import { LuHistory, LuLockOpen, LuLock, LuZap, LuSparkles, LuShuffle } from "react-icons/lu";
+import { LuHistory, LuLockOpen, LuLock, LuZap, LuSparkles, LuShuffle, LuChevronDown } from "react-icons/lu";
 
 const PRESET_DESCRIPTIONS: Record<string, string> = {
   "Safe Acca": "Low-risk — targets consistent Over 1.5 scorers. Best for stable accumulators.",
@@ -24,16 +24,29 @@ export default function PresetLoader() {
   } = useSlipBuilder();
 
   const presetList = Object.values(PRESETS);
+  const [showPresets, setShowPresets] = useState(false);
 
   return (
     <div className="flex flex-col space-y-4">
+      {/* Collapsible header — always visible */}
       <div className="flex items-center justify-between pb-1">
-        <h3 className="font-semibold text-base font-sora flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setShowPresets(!showPresets)}
+          className="font-semibold text-base font-sora flex items-center gap-2 cursor-pointer transition-colors duration-150 hover:text-primary"
+          aria-expanded={showPresets}
+        >
           <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary">
             <LuZap className="h-3 w-3" />
           </span>
           Quick Presets
-        </h3>
+          <LuChevronDown
+            className={cn(
+              "h-3.5 w-3.5 text-muted-foreground transition-transform duration-200",
+              showPresets && "rotate-180"
+            )}
+          />
+        </button>
         <button
           type="button"
           onClick={loadLastFilters}
@@ -80,8 +93,9 @@ export default function PresetLoader() {
         </div>
       )}
 
-      {/* Presets List */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+      {/* Presets List — collapsible */}
+      {showPresets && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 animate-in fade-in slide-in-from-top-2 duration-200">
         {presetList.map((preset) => {
           const isActive = activePreset === preset.name;
           const isApplied = presetLocked && isActive;
@@ -149,6 +163,7 @@ export default function PresetLoader() {
           );
         })}
       </div>
+      )}
     </div>
   );
 }
