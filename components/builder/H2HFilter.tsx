@@ -37,7 +37,7 @@ export default function H2HFilter() {
           onClick={() => setH2hEnabled(!h2hEnabled)}
           className={cn(
             "relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
-            h2hEnabled ? "bg-primary" : "bg-muted/50"
+            h2hEnabled ? "bg-primary" : "bg-muted/80 dark:bg-muted/60"
           )}
         >
           <span

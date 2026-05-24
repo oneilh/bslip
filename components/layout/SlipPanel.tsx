@@ -107,7 +107,7 @@ export default function SlipPanel() {
               {generatedSlip.legs.map((leg: any) => (
                 <div
                   key={leg.id}
-                  className="relative p-3.5 rounded-lg bg-muted/30 dark:bg-muted/15 hover:bg-muted/50 dark:hover:bg-muted/25 transition-colors duration-150"
+                  className="relative p-3.5 rounded-lg bg-muted/60 dark:bg-muted/25 hover:bg-muted/80 dark:hover:bg-muted/40 transition-colors duration-150"
                 >
                   {/* Left accent stripe */}
                   <div className="absolute left-0 top-3 bottom-3 w-[3px] rounded-full bg-primary/40" />
@@ -161,7 +161,7 @@ export default function SlipPanel() {
             </div>
 
             {/* Summary */}
-            <div className="mt-3 p-3 bg-muted/30 dark:bg-muted/15 rounded-lg space-y-2">
+            <div className="mt-3 p-3 bg-muted/60 dark:bg-muted/25 rounded-lg space-y-2">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-medium text-muted-foreground">Total Selections:</span>
                 <span className="font-bold font-mono">{generatedSlip.totalLegs} legs</span>
@@ -198,7 +198,7 @@ export default function SlipPanel() {
 
                 <div className="space-y-2">
                   {/* Competitions */}
-                  <div className="p-3 rounded-lg bg-muted/40 dark:bg-muted/20">
+                  <div className="p-3 rounded-lg bg-muted/70 dark:bg-muted/30">
                     <div className="flex items-center gap-2 text-xs">
                       <LuSwords className="h-3.5 w-3.5 text-primary/70 shrink-0" />
                       <span className="text-muted-foreground font-medium">Competitions</span>
@@ -215,7 +215,7 @@ export default function SlipPanel() {
                   </div>
 
                   {/* Markets */}
-                  <div className="p-3 rounded-lg bg-muted/40 dark:bg-muted/20">
+                  <div className="p-3 rounded-lg bg-muted/70 dark:bg-muted/30">
                     <div className="flex items-center gap-2 text-xs">
                       <LuGoal className="h-3.5 w-3.5 text-primary/70 shrink-0" />
                       <span className="text-muted-foreground font-medium">
@@ -233,13 +233,13 @@ export default function SlipPanel() {
 
                   {/* Frequency + Scope */}
                   <div className="grid grid-cols-2 gap-2">
-                    <div className="p-3 rounded-lg bg-muted/40 dark:bg-muted/20">
+                    <div className="p-3 rounded-lg bg-muted/70 dark:bg-muted/30">
                       <span className="text-[10px] text-muted-foreground font-medium block">Frequency</span>
                       <span className="text-xs font-mono font-semibold mt-0.5 block text-foreground/90">
                         {FREQ_LABELS[frequency] || frequency}
                       </span>
                     </div>
-                    <div className="p-3 rounded-lg bg-muted/40 dark:bg-muted/20">
+                    <div className="p-3 rounded-lg bg-muted/70 dark:bg-muted/30">
                       <span className="text-[10px] text-muted-foreground font-medium block">Scope</span>
                       <span className="text-xs font-mono font-semibold mt-0.5 block text-foreground/90">
                         {SCOPE_LABELS[scope] || scope}
@@ -248,7 +248,7 @@ export default function SlipPanel() {
                   </div>
 
                   {/* Target Picks */}
-                  <div className="p-3 rounded-lg bg-muted/40 dark:bg-muted/20">
+                  <div className="p-3 rounded-lg bg-muted/70 dark:bg-muted/30">
                     <div className="flex items-center gap-2 text-xs">
                       <LuTarget className="h-3.5 w-3.5 text-primary/70 shrink-0" />
                       <span className="text-muted-foreground font-medium">Target Picks</span>
@@ -259,7 +259,7 @@ export default function SlipPanel() {
                   </div>
 
                   {/* H2H Summary */}
-                  <div className="p-3 rounded-lg bg-muted/40 dark:bg-muted/20">
+                  <div className="p-3 rounded-lg bg-muted/70 dark:bg-muted/30">
                     <div className="flex items-center gap-2 text-xs">
                       <LuShield className="h-3.5 w-3.5 text-primary/70 shrink-0" />
                       <span className="text-muted-foreground font-medium">H2H Filter</span>

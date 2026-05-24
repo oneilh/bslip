@@ -93,7 +93,7 @@ export default function StrategyFilters() {
       </div>
 
       {/* Target Picks Selector */}
-      <div className="w-full p-4 rounded-xl bg-muted/40 dark:bg-muted/20">
+      <div className="w-full p-4 rounded-xl bg-muted/60 dark:bg-muted/30">
         <div className="space-y-2.5">
           <div className="flex items-center justify-between">
             <label className="text-xs font-semibold text-muted-foreground block font-sora">

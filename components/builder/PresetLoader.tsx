@@ -99,7 +99,7 @@ export default function PresetLoader() {
                   ? "ring-1 ring-primary/40 bg-primary/5 border-primary/20"
                   : presetLocked
                   ? "border-border/20 bg-muted/10 opacity-50 cursor-not-allowed"
-                  : "border-border/30 bg-card hover:bg-accent",
+                  : "border-border/40 bg-muted/30 hover:bg-muted/50",
                 !presetLocked && !isActive && "cursor-pointer"
               )}
             >
