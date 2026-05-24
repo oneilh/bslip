@@ -80,7 +80,10 @@ export function AuthModal() {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in-0 duration-200">
       <div className="absolute inset-0" onClick={closeModal} />
 
-      <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-background border border-border shadow-2xl p-6 md:p-8 z-10 animate-in zoom-in-95 duration-200">
+      <div
+        className="relative w-full max-w-md overflow-hidden rounded-xl bg-background shadow-2xl p-6 md:p-8 z-10 animate-in zoom-in-95 duration-200 origin-center"
+        style={{ animationTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+      >
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold tracking-tight font-sora">
             {view === "signin" ? "Welcome back" : "Create your account"}
@@ -94,7 +97,7 @@ export function AuthModal() {
 
         {isSubmitted ? (
           <div className="flex flex-col items-center justify-center py-6 text-center animate-in fade-in-50">
-            <div className="h-14 w-14 rounded-full bg-green-500/10 flex items-center justify-center text-green-600 mb-4">
+            <div className="h-14 w-14 rounded-full bg-emerald-50 dark:bg-emerald-500/15 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">
               <LuCircleCheck className="h-7 w-7" />
             </div>
             <h3 className="text-lg font-semibold">Check your email</h3>
@@ -114,7 +117,7 @@ export function AuthModal() {
             <Button
               type="button"
               variant="outline"
-              className="w-full h-11 font-medium flex items-center justify-center gap-2.5 bg-background hover:bg-muted/50 border-input"
+              className="w-full h-11 font-medium flex items-center justify-center gap-2.5 bg-background hover:bg-accent border-input"
               onClick={handleGoogleLogin}
               disabled={isGoogleLoading || isLoading}
             >
@@ -144,38 +147,41 @@ export function AuthModal() {
             </Button>
 
             <div className="relative flex py-2 items-center">
-              <div className="flex-grow border-t border-border" />
+              <div className="flex-grow border-t border-border/40" />
               <span className="flex-shrink mx-4 text-xs text-muted-foreground uppercase tracking-wider">
                 Or continue with email
               </span>
-              <div className="flex-grow border-t border-border" />
+              <div className="flex-grow border-t border-border/40" />
             </div>
 
             <form onSubmit={handleMagicLink} className="space-y-3">
               <div>
+                <label htmlFor="auth-email" className="sr-only">Email address</label>
                 <div className="relative">
                   <LuMail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
+                    id="auth-email"
                     type="email"
                     required
                     placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-11 rounded-lg border border-input bg-background pl-9 pr-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent placeholder:text-muted-foreground transition-shadow"
+                    className="w-full h-11 rounded-lg border border-input bg-background pl-9 pr-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent placeholder:text-muted-foreground transition-shadow duration-150"
                     disabled={isLoading || isGoogleLoading}
+                    autoComplete="email"
                   />
                 </div>
               </div>
 
               {errorMsg && (
-                <p className="text-xs text-red-600 font-medium animate-in fade-in">
+                <p className="text-xs text-red-600 font-medium animate-in fade-in" role="alert">
                   {errorMsg}
                 </p>
               )}
 
               <Button
                 type="submit"
-                className="w-full h-11 font-medium bg-[#F97316] hover:bg-[#EA6C0A] text-white transition-colors"
+                className="w-full h-11 font-medium bg-primary hover:bg-primary/90 text-white transition-colors duration-150 rounded-lg"
                 disabled={isLoading || isGoogleLoading}
               >
                 {isLoading ? (
@@ -188,13 +194,13 @@ export function AuthModal() {
           </div>
         )}
 
-        <div className="mt-6 text-center text-sm border-t border-border/60 pt-4">
+        <div className="mt-6 text-center text-sm border-t border-border/30 pt-4">
           <span className="text-muted-foreground">
             {view === "signin" ? "Don't have an account?" : "Already have an account?"}
           </span>{" "}
           <button
             type="button"
-            className="font-semibold text-[#F97316] hover:underline focus:outline-none"
+            className="font-semibold text-primary hover:underline focus:outline-none cursor-pointer"
             onClick={() => setView(view === "signin" ? "signup" : "signin")}
           >
             {view === "signin" ? "Sign up" : "Sign in"}

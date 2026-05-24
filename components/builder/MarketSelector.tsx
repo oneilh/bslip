@@ -42,23 +42,26 @@ export default function MarketSelector() {
   return (
     <div className="space-y-4">
       {/* Header and Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <h3 className="font-semibold text-base font-sora">2. Choose Market Mode</h3>
+      <div className="flex items-center gap-2.5 pb-0.5">
+        <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-primary/10 text-primary text-[11px] font-bold shrink-0">
+          2
+        </span>
+        <h3 className="font-semibold text-base font-sora">Choose Market Mode</h3>
         
         {/* Toggle Mode Button Group */}
-        <div className="inline-flex rounded-lg p-0.5 bg-muted/60 border border-border/60">
+        <div className="inline-flex rounded-lg p-0.5 bg-muted ml-auto">
           <button
             type="button"
             disabled={presetLocked}
             onClick={() => setMarketMode("single")}
             className={cn(
-              "px-3 py-1.5 text-xs font-semibold rounded-md transition-all",
+              "px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-150",
               marketMode === "single"
-                ? "bg-background text-foreground shadow-sm"
+                ? "bg-card text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground disabled:opacity-50"
             )}
           >
-            Single Market
+            Single
           </button>
           
           <button
@@ -66,9 +69,9 @@ export default function MarketSelector() {
             disabled={presetLocked}
             onClick={() => setMarketMode("builder")}
             className={cn(
-              "px-3 py-1.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1",
+              "px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-150 flex items-center gap-1",
               marketMode === "builder"
-                ? "bg-[#F97316] text-white shadow-sm hover:bg-[#EA6C0A]"
+                ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground disabled:opacity-50"
             )}
           >
@@ -78,10 +81,12 @@ export default function MarketSelector() {
         </div>
       </div>
 
-      {/* Mode explanation */}
-      <div className="flex items-start gap-2 p-3 bg-secondary/40 border rounded-lg text-xs text-muted-foreground">
-        <LuInfo className="h-4 w-4 shrink-0 text-muted-foreground mt-0.5" />
-        <div>
+      {/* Mode explanation — left accent stripe */}
+      <div className="flex items-start gap-2.5 p-3 bg-muted/50 border-l-2 border-primary/40 rounded-r-xl text-xs text-muted-foreground">
+        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-muted shrink-0 mt-0.5">
+          <LuInfo className="h-3 w-3" />
+        </span>
+        <div className="leading-relaxed">
           {marketMode === "single" ? (
             <p>
               <strong>Single Market Mode</strong>: A fixture is selected if it satisfies the single chosen market condition.
@@ -109,12 +114,12 @@ export default function MarketSelector() {
               disabled={isDisabled}
               onClick={() => toggleMarket(market.id)}
               className={cn(
-                "flex flex-col p-3 rounded-xl border text-left transition-all duration-200",
+                "flex flex-col p-3.5 rounded-xl border text-left transition-all duration-200",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary select-none",
-                isDisabled ? "cursor-not-allowed opacity-75" : "cursor-pointer bg-card hover:bg-surface-hover hover:border-muted-foreground/30 active:scale-[0.99]",
+                isDisabled ? "cursor-not-allowed opacity-70" : "cursor-pointer bg-card hover:bg-accent active:scale-[0.97]",
                 isSelected
-                  ? "border-[#F97316] bg-[#FFEDD5]/10 shadow-[0_0_0_1px_#F97316] dark:bg-accent/5"
-                  : "border-border"
+                  ? "ring-1 ring-primary/50 bg-primary/5 border-primary/30"
+                  : "border-border/30"
               )}
             >
               <div className="flex items-center justify-between w-full">
@@ -122,13 +127,13 @@ export default function MarketSelector() {
                   {market.name}
                 </span>
                 {showsLock && (
-                  <span className="text-[10px] flex items-center gap-0.5 px-1.5 py-0.5 bg-muted text-muted-foreground rounded font-mono">
+                  <span className="text-[9px] flex items-center gap-0.5 px-1.5 py-0.5 bg-muted/60 text-muted-foreground rounded font-mono">
                     <LuLock className="h-2.5 w-2.5" />
                     Auth
                   </span>
                 )}
               </div>
-              <p className="text-[10px] text-muted-foreground mt-1">
+              <p className="text-[10px] text-muted-foreground mt-1.5 leading-relaxed">
                 {market.description}
               </p>
             </button>

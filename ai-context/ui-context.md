@@ -1,4 +1,4 @@
-# Slip Builder — Design System Spec (v1.0)
+# Slip Builder — Design System Spec (v2.0)
 
 ## 🎨 Theme
 
@@ -8,19 +8,19 @@
 
 | Token                | Value     |
 | -------------------- | --------- |
-| Background           | `#F4F5F2` |
-| Background Secondary | `#ECEEE8` |
-| Surface              | `#FCFCFA` |
+| Background           | `#F8FAFC` |
+| Background Secondary | `#F1F5F9` |
+| Surface              | `#FFFFFF` |
 | Surface Elevated     | `#FFFFFF` |
-| Surface Hover        | `#F5F5F3` |
-| Text Primary         | `#121212` |
-| Text Secondary       | `#667085` |
-| Border / Divider     | `#E4E7EC` |
+| Surface Hover        | `hover:bg-accent` |
+| Text Primary         | `#0F172A` |
+| Text Secondary       | `#64748B` |
+| Border / Divider     | `#E2E8F0` |
 | Accent               | `#F97316` |
 | Accent Hover         | `#EA6C0A` |
 | Accent Light         | `#FFEDD5` |
-| Success              | `#16A34A` |
-| Warning              | `#D97706` |
+| Success              | `#10B981` |
+| Warning              | `#F59E0B` |
 | Danger               | `#DC2626` |
 
 ---
@@ -29,18 +29,18 @@
 
 | Token                | Value     |
 | -------------------- | --------- |
-| Background           | `#0B0D0F` |
-| Background Secondary | `#111315` |
-| Surface              | `#15181B` |
-| Surface Elevated     | `#1B1F24` |
-| Surface Hover        | `#22262C` |
-| Text Primary         | `#F3F4F6` |
-| Text Secondary       | `#98A2B3` |
-| Border / Divider     | `#2A2F36` |
+| Background           | `#0B0F19` |
+| Background Secondary | `#1E293B` |
+| Surface              | `#141B2B` |
+| Surface Elevated     | `#141B2B` |
+| Surface Hover        | `hover:bg-accent` |
+| Text Primary         | `#F8FAFC` |
+| Text Secondary       | `#94A3B8` |
+| Border / Divider     | `#273549` |
 | Accent               | `#F97316` |
 | Accent Hover         | `#FB923C` |
 | Accent Light         | `#FFEDD5` |
-| Success              | `#22C55E` |
+| Success              | `#10B981` |
 | Warning              | `#F59E0B` |
 | Danger               | `#EF4444` |
 
@@ -63,10 +63,11 @@
 
 ### Border Radius
 
-- Cards: `10px`
-- Buttons: `8px`
-- Inputs: `6px`
-- Badges: `4px`
+- Cards: `rounded-xl` (12px)
+- Buttons: `rounded-lg` (8px)
+- Inputs: `rounded-lg` (8px)
+- Badges: `rounded` / `rounded-full`
+- CTA Buttons: `rounded-xl` (12px)
 
 ---
 
@@ -77,12 +78,17 @@
 - Reuse shared components before creating new ones
 - Use `cn()` for class merging
 - Support light and dark mode
-- Avoid hardcoded colors
+- Avoid hardcoded colors — use `bg-primary`, `text-primary`, etc.
 - Prefer semantic HTML
 - Components must be responsive by default
 - Prefer Tailwind utilities over custom CSS
 - Use `gap-*` instead of margins where possible
 - Avoid deep flex nesting
+- **Borders:** Use `border-border/30` (subtle) or no border with bg-tint grouping
+- **Shadows:** Avoid `shadow-sm` on cards; use `shadow-[0_1px_3px_0_rgba(0,0,0,0.04)]` only on the main workspace
+- **Selection indicators:** Use `ring-1 ring-primary/50 bg-primary/5` — never `shadow-[0_0_0_1px_...]`
+- **Press feedback:** `active:scale-[0.97-0.98]` on interactive cards/buttons
+- **Transitions:** `transition-[specific-props] duration-150` — never `transition: all`
 
 ---
 
@@ -99,18 +105,18 @@
 ## 📐 Responsive Breakpoints
 
 ### Mobile `< 640px`
-- Padding: `16px`, single-column stack layout
-- Slip Panel hidden (accessible via floating bar)
+- Padding: `20px` (`px-5`), single-column stack layout
+- Slip Panel hidden (accessible via tab switcher)
 
 ### Tablet `640px – 1024px`
-- 2-column CSS Grid: `[1fr 320px]`
+- 2-column CSS Grid: `[1fr 340px]`
 - Strategy Config + Presets stacked in main column
 - Slip Panel visible as narrow sidebar
 
 ### Desktop `> 1024px`
-- Max width: `360` (`1440px`), 2-column grid layout
-- Main column: nested 2/3 + 1/3 grid for Strategy Config + Presets
-- Slip Panel: fixed 320px sidebar
+- Max width: `1360px`, 2-column grid layout: `lg:grid-cols-[1fr_340px]`
+- Main column: unified strategy workspace card
+- Slip Panel: fixed 340px sidebar
 - Multi-zone spacing, strong hierarchy
 
 ---
@@ -119,7 +125,7 @@
 
 | Component             | Where it's used                          |
 | --------------------- | ---------------------------------------- |
-| `Button`              | Header, Slip Panel, Page                 |
+| `Button`              | Header, Slip Panel, Page, AuthModal      |
 | `Card`                | shadcn/ui base card (available but unused directly) |
 | `ViewSlipMobile`      | Mobile floating bar (generated slip only) |
 | `AuthProvider`        | Global auth context                      |
@@ -138,17 +144,16 @@
 ## 🧱 Layout Architecture
 
 ### Root Layout (`app/layout.tsx`)
-- **Grid**: `grid-cols-1 md:grid-cols-[1fr_320px]`
-- Mobile: single column (SlipPanel hidden)
-- Tablet+: main content area + 320px sidebar for SlipPanel
-- Max width: `max-w-360` centered
+- Max width: `max-w-[1360px]` centered
+- Padding: `px-5 md:px-8`
+- Body: `min-h-full flex flex-col`
 
 ### Page Layout (`app/page.tsx`)
-- **Nested Grid**: `grid-cols-1 lg:grid-cols-3` inside main area
-- Strategy Config: `col-span-1 lg:col-span-2` (larger share)
-- Presets: `col-span-1` (smaller share)
-- Both wrapped in `bg-card border rounded-[10px]` card containers
-- No BentoCard wrappers — reduced nesting
+- **Grid**: `grid-cols-1 lg:grid-cols-[1fr_340px]`
+- Mobile: tab switcher (Configure Strategy / Your Slip)
+- Desktop: main content area + 340px sidebar for SlipPanel
+- Workspace card: `bg-card border border-border/30 rounded-xl shadow-[0_1px_3px_0_rgba(0,0,0,0.04)]`
+- Section dividers: `.section-divider` gradient class
 
 ---
 
@@ -177,8 +182,35 @@
 | Preset Customize | `LuSparkles` / `LuShuffle` |
 | H2H Filter       | `LuShield`         |
 | Strategy Config  | `LuSwords`, `LuGoal`, `LuTarget` |
+| Check (selected) | `LuCheck`          |
+| Lock (disabled)  | `LuLock` / `LuLockOpen` |
+| Close / Reset    | `LuX`              |
+| Chevron (nav)    | `LuChevronRight`   |
 
 ### 🚫 Icon Usage Rule
 - Do NOT use emojis as replacements for icons
 - Always prefer React Icons (Lucide or Phosphor)
 - If no suitable icon exists, ask for guidance
+
+---
+
+## 🎨 Design Patterns
+
+### Grouping (replacing visible borders)
+- Use `bg-muted/40 dark:bg-muted/20` tint backgrounds instead of `border border-border`
+- Reserve borders for the outer workspace card only (`border-border/30`)
+
+### Selection Indicators
+- `ring-1 ring-primary/50 bg-primary/5 border-primary/30` on selected cards
+- `ring-2 ring-primary/20` behind check badges
+
+### Confidence Badges
+- Strong: `bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400`
+- Moderate: `bg-amber-50 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400`
+- Borderline: `bg-yellow-50 text-yellow-700 dark:bg-yellow-500/15 dark:text-yellow-400`
+
+### Step Number Badges
+- `inline-flex h-5 w-5 items-center justify-center rounded-md bg-primary/10 text-primary text-[11px] font-bold`
+
+### Section Dividers
+- `.section-divider` class — CSS gradient from transparent → border → transparent at 50% opacity

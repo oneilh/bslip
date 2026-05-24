@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Sora, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
-import SlipPanel from "@/components/layout/SlipPanel";
-import ViewSlipMobile from "@/components/layout/ViewSlipMobile";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { SlipBuilderProvider } from "@/components/builder/SlipBuilderContext";
@@ -38,25 +36,15 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col">
         <AuthProvider>
           <SlipBuilderProvider>
             <Header />
             
-            {/* Main Application Area — CSS Grid Layout */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_320px] max-w-360 mx-auto w-full md:h-[calc(100vh-64px)]">
-              {/* Main Workspace Column */}
-              <main className="w-full md:h-full md:overflow-y-auto px-4 md:px-6 py-6">
-                {children}
-              </main>
-              {/* Slip Panel Sidebar */}
-              <aside className="hidden md:flex flex-col md:h-full md:overflow-y-auto p-6 pl-0">
-                <SlipPanel />
-              </aside>
-            </div>
-
-            {/* Mobile Floating Action Bar */}
-            <ViewSlipMobile />
+            {/* Main Application Area */}
+            <main className="flex-1 w-full max-w-[1360px] mx-auto px-5 md:px-8 py-6 md:py-8 flex flex-col">
+              {children}
+            </main>
 
             {/* Global Backdrop Dialogue Modal */}
             <AuthModal />

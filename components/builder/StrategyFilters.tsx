@@ -31,60 +31,59 @@ export default function StrategyFilters() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h3 className="font-semibold text-base font-sora">3. Set Strategy Filters</h3>
+      <div className="flex items-center gap-2.5">
+        <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-primary/10 text-primary text-[11px] font-bold shrink-0">
+          3
+        </span>
+        <h3 className="font-semibold text-base font-sora">Set Strategy Filters</h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Frequency Preset Selection */}
-        <div className="space-y-2">
+        <div className="space-y-2.5">
           <label className="text-xs font-semibold text-muted-foreground block font-sora">
             Frequency Threshold
           </label>
-          <div className="relative">
-            <select
-              value={frequency}
-              disabled={presetLocked}
-              onChange={(e) => setFrequency(e.target.value)}
-              className={cn(
-                "w-full h-10 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-[#F97316]",
-                presetLocked ? "opacity-75 cursor-not-allowed bg-muted/20" : "cursor-pointer"
-              )}
-            >
-              {FREQUENCIES.map((freq) => (
-                <option key={freq.value} value={freq.value}>
-                  {freq.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={frequency}
+            disabled={presetLocked}
+            onChange={(e) => setFrequency(e.target.value)}
+            className={cn(
+              "w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150",
+              presetLocked ? "opacity-60 cursor-not-allowed bg-muted/10" : "cursor-pointer"
+            )}
+          >
+            {FREQUENCIES.map((freq) => (
+              <option key={freq.value} value={freq.value}>
+                {freq.label}
+              </option>
+            ))}
+          </select>
           <p className="text-[10px] text-muted-foreground font-mono">
             How often the team must meet the market condition in recent games.
           </p>
         </div>
 
         {/* Scope Selection */}
-        <div className="space-y-2">
+        <div className="space-y-2.5">
           <label className="text-xs font-semibold text-muted-foreground block font-sora">
             Form Venue Scope
           </label>
-          <div className="relative">
-            <select
-              value={scope}
-              disabled={presetLocked}
-              onChange={(e) => setScope(e.target.value)}
-              className={cn(
-                "w-full h-10 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-[#F97316]",
-                presetLocked ? "opacity-75 cursor-not-allowed bg-muted/20" : "cursor-pointer"
-              )}
-            >
-              {SCOPES.map((sc) => (
-                <option key={sc.value} value={sc.value}>
-                  {sc.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select
+            value={scope}
+            disabled={presetLocked}
+            onChange={(e) => setScope(e.target.value)}
+            className={cn(
+              "w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150",
+              presetLocked ? "opacity-60 cursor-not-allowed bg-muted/10" : "cursor-pointer"
+            )}
+          >
+            {SCOPES.map((sc) => (
+              <option key={sc.value} value={sc.value}>
+                {sc.label}
+              </option>
+            ))}
+          </select>
           <p className="text-[10px] text-muted-foreground font-mono">
             {scope === "both" && "Evaluates overall recent form (both home and away matches)."}
             {scope === "home" && "Evaluates Home team on home matches; Away team on away matches."}
@@ -94,8 +93,8 @@ export default function StrategyFilters() {
       </div>
 
       {/* Target Picks Selector */}
-      <div className="w-full">
-        <div className="space-y-2">
+      <div className="w-full p-4 rounded-xl bg-muted/40 dark:bg-muted/20">
+        <div className="space-y-2.5">
           <div className="flex items-center justify-between">
             <label className="text-xs font-semibold text-muted-foreground block font-sora">
               Target Picks
@@ -105,16 +104,16 @@ export default function StrategyFilters() {
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-muted-foreground font-mono">1</span>
+            <span className="text-[10px] text-muted-foreground font-mono">1</span>
             <input
               type="range"
               min={1}
               max={8}
               value={targetPicks}
               onChange={(e) => setTargetPicks(Number(e.target.value))}
-              className="flex-1 h-2 rounded-full appearance-none cursor-pointer bg-muted accent-[#F97316]"
+              className="flex-1"
             />
-            <span className="text-xs text-muted-foreground font-mono">8</span>
+            <span className="text-[10px] text-muted-foreground font-mono">8</span>
           </div>
           <p className="text-[10px] text-muted-foreground font-mono">
             Target number of fixtures for the generated slip. Results capped at this value.
@@ -123,7 +122,7 @@ export default function StrategyFilters() {
       </div>
 
       {/* H2H Filter */}
-      <div className="pt-2 border-t border-border/60">
+      <div className="pt-3 border-t border-border/30">
         <H2HFilter />
       </div>
     </div>

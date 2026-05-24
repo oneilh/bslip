@@ -18,6 +18,8 @@ Use clear bullet points and direct wording.
 
 - Phase 1 UX/Architecture fixes complete
 - Layout/Spacing Refactor complete
+- UI/Layout & Aesthetic Enhancement complete
+- **Full UI Rebuild (Premium Clean Design) complete**
 
 ---
 
@@ -84,6 +86,55 @@ Use clear bullet points and direct wording.
 - Added responsive sidebar overflow handling (md:overflow-y-auto)
 - Removed unused BentoCard component from imports
 
+**UI/Layout & Aesthetic Enhancement:**
+- Upgraded body background with subtle radial gradients (soft orange/green glows) for premium feel
+- Wrapped main workspace in a glass-like container with backdrop-blur, gradient overlay, and gentle border
+- Enhanced Strategy Config and Presets cards with `backdrop-blur-sm`, `bg-card/60`, softer borders, and `shadow-sm`
+- Replaced solid section dividers (h-px) with gradient dividers for refined visual separation
+- Upgraded SlipPanel with gradient background, subtler borders, and `scrollbar-thin` utility
+- Updated Strategy Summary items with gradient backgrounds, softer borders, and highlighted icon colors (primary/60)
+- Enhanced Generate button with gradient (orange) and hover shadow elevation
+- Upgraded Footer area of SlipPanel with `bg-card/40` and lighter top border
+- Redesigned PresetLoader header with icon badge; enhanced preset cards with gradient backgrounds and hover effects
+- Improved Preset Applied banner with gradient background, icon badge, and polished button styling
+- Added `line-clamp-2` to preset descriptions for compact display
+- Updated League picker buttons with gradient backgrounds and softer selected state (reduced sharpness)
+- Refined MarketSelector buttons with gradient backgrounds and softer selected state
+- Enhanced StrategyFilters selects with `border-border/50`, hover styles, and transition-all
+- Added gradient-wrapper card around Target Picks range slider for visual emphasis
+- Updated H2HFilter with softer icon badge, indented threshold controls, and improved hover states
+- Enhanced ViewSlipMobile with orange gradient background and Lucide icons
+- Updated Header with `backdrop-blur-lg`, border-b, max-width constraint, and gradient logo
+- Applied consistent design tokens across all components (border-border/30-50, bg-card/60-80, transition-all)
+
+**UI Layout, Heights & Spacing Adjustments:**
+- Upgraded theme variables in `app/globals.css` with a high-contrast Slate/Zinc palette and refined radial gradients.
+- Removed redundant outer card wrapper in `app/layout.tsx` to let workspace cards sit directly on the background canvas.
+- Configured grid column spacing to `gap-6` between main content and sidebar columns.
+- Removed `h-full` and scroll constraints from `PresetLoader` (Presets card) so it fits its content height naturally.
+- Formatted `aside` layout wrapper to `self-start w-full` to fit the slip panel height exactly.
+- Fixed dark mode hover whiteout contrast bugs in `CompetitionPicker`, `MarketSelector`, and `PresetLoader` by swapping `hover:bg-[#F5F5F3]` with responsive theme-aware hover classes.
+- Synced color token updates to `ai-context/ui-context.md` documentation.
+
+**Layout Redesign & Mobile UX Upgrades:**
+- Redesigned page architecture by moving grid structures and sidebar (`SlipPanel`) out of `layout.tsx` and directly into `page.tsx` for cleaner route scope.
+- Added Tab Switcher navigation on mobile/tablet screens (Configure Strategy vs. Your Slip) for comfortable touch device operation.
+- Added auto-tab switching: redirects user to the "Your Slip" tab automatically upon successful slip generation.
+- Upgraded the mobile floating banner (`ViewSlipMobile`) to support touch clicks that route user directly to the slip tab.
+- Converted presets list into a responsive, compact grid selector (`grid-cols-1 sm:grid-cols-2 xl:grid-cols-3`) to preserve vertical space.
+
+**Full UI Rebuild (Premium Clean Design):**
+- Overhauled `globals.css`: single subtle background wash, custom range slider/select/scrollbar styling, `.section-divider` gradient utility, `prefers-reduced-motion` media query
+- Refined `layout.tsx`: tighter max-width (1360px), wider padding, simplified body classes
+- Rebuilt `page.tsx`: pill-style tab switcher (bg-muted, no border), explicit `lg:grid-cols-[1fr_340px]` sidebar, gradient section dividers, token-based generate button, emoji→icon fix
+- Redesigned `Header.tsx`: frosted backdrop-blur-xl + backdrop-saturate-150, branded logo dot, warm credits display (bg-primary/8), consistent icon button sizing (h-9 w-9 rounded-lg)
+- Rebuilt `SlipPanel.tsx`: borderless summary cards (bg-muted/40 tint), left accent stripes on leg cards, high-contrast confidence badges (emerald/amber/yellow), removed .SUMMARY label
+- Rebuilt all builder components (CompetitionPicker, MarketSelector, StrategyFilters, PresetLoader, H2HFilter): step number badges, ring-1 ring-primary/50 selection, hover:bg-accent, border-border/30, left accent stripe on info boxes
+- Rebuilt `ViewSlipMobile`: solid bg-primary, safe-area-inset-bottom padding, active:scale press feedback
+- Rebuilt `AuthModal`: elevation-only (no border), modal easing cubic-bezier(0.22,1,0.36,1), focus:ring-primary/50, accessible label+autoComplete, role=alert on errors
+- Updated `ui-context.md` to v2.0 with new design patterns, token reference, and component library
+- Build verified: TypeScript pass, all pages generated successfully
+
 ---
 
 ## In Progress
@@ -112,6 +163,8 @@ Use clear bullet points and direct wording.
 - Target Picks is independent of presets (not locked by preset)
 - H2H is additive filter (form AND H2H must both pass), not a replacement
 - H2H is available by default in mock mode (credit gating will be added in production)
+- Visual layering uses CSS gradients + transparency rather than stacked elements for performance
+- All card components use consistent `bg-card/X` + `backdrop-blur` + `border-border/X` pattern for unified look
 
 ---
 
@@ -121,4 +174,7 @@ Use clear bullet points and direct wording.
 - SlipPanel layout stable — no jumping, no reactive preview
 - Presets now show description + "Customize Preset" option
 - H2H toggle + threshold fully functional with mock data
+- Full UI rebuild complete — all 13 files rebuilt for premium clean aesthetic
+- Design system v2.0 documented in ui-context.md
+- Key design patterns: bg-tint grouping (no visible borders), ring-based selection, step number badges, gradient section dividers
 - Next session: database integration (Supabase schemas, migrations, server persistence)

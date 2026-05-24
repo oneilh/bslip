@@ -30,17 +30,22 @@ export default function CompetitionPicker() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-        <h3 className="font-semibold text-base font-sora">1. Select Competitions</h3>
-        <span className="text-xs text-muted-foreground">
-          Select 1 to 3 active leagues
+      <div className="flex items-center gap-2.5 pb-0.5">
+        <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-primary/10 text-primary text-[11px] font-bold shrink-0">
+          1
+        </span>
+        <h3 className="font-semibold text-base font-sora">Select Competitions</h3>
+        <span className="text-[10px] text-muted-foreground ml-auto font-mono">
+          Pick 1–3
         </span>
       </div>
 
       {/* Warning Message */}
       {competitionError && (
-        <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/20 text-red-600 rounded-lg text-sm transition-all duration-200 animate-in fade-in slide-in-from-top-1">
-          <LuCircleAlert className="h-4 w-4 shrink-0" />
+        <div className="flex items-center gap-2.5 p-3 bg-red-500/8 border border-red-500/20 text-red-600 rounded-xl text-xs transition-all duration-200 animate-in fade-in slide-in-from-top-1">
+          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-500/10 shrink-0">
+            <LuCircleAlert className="h-3.5 w-3.5" />
+          </span>
           <span className="font-medium">{competitionError}</span>
         </div>
       )}
@@ -61,11 +66,11 @@ export default function CompetitionPicker() {
                 "relative flex flex-col justify-between p-3.5 rounded-xl border text-left transition-all duration-200",
                 "h-24 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                 league.active
-                  ? "cursor-pointer bg-card hover:bg-surface-hover hover:border-muted-foreground/30 active:scale-[0.98]"
-                  : "bg-muted/10 border-border/40 opacity-55 cursor-not-allowed",
+                  ? "cursor-pointer bg-card hover:bg-accent active:scale-[0.97]"
+                  : "bg-muted/10 border-border/30 opacity-50 cursor-not-allowed",
                 isSelected && league.active
-                  ? "border-[#F97316] bg-[#FFEDD5]/10 shadow-[0_0_0_1px_#F97316] dark:bg-accent/5"
-                  : "border-border"
+                  ? "ring-1 ring-primary/50 bg-primary/5 border-primary/30"
+                  : "border-border/30"
               )}
             >
               {/* Top Row: League Code & Badge / Lock */}
@@ -76,7 +81,7 @@ export default function CompetitionPicker() {
 
                 {league.active ? (
                   isSelected && (
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F97316] text-white">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-white ring-2 ring-primary/20">
                       <LuCheck className="h-3 w-3" />
                     </span>
                   )
@@ -92,8 +97,8 @@ export default function CompetitionPicker() {
                 <div className="flex items-center gap-1.5">
                   <PiSoccerBall
                     className={cn(
-                      "h-4 w-4 shrink-0",
-                      isSelected ? "text-[#F97316]" : "text-muted-foreground"
+                      "h-3.5 w-3.5 shrink-0",
+                      isSelected ? "text-primary" : "text-muted-foreground"
                     )}
                   />
                   <p className="font-semibold text-xs leading-none tracking-tight">
