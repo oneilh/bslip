@@ -30,6 +30,8 @@ Use clear bullet points and direct wording.
 ---
 
 ## Completed
+- **UI Color Scheme Contrast Enhancement:** Added `--card-warm` / `--card-warm-foreground` CSS variables (#FFFCF7 light, #1A1F2E dark). Applied `bg-card-warm` to all strategy section wrappers and SlipPanel for contrast against `bg-background`. Updated nav header to `bg-card-warm/90` with `backdrop-blur-xl` to match. Updated inner sub-sections and leg items to `bg-card` with `border-border/20` for clean separation. Kept all hover effects intact.
+- **Glass Aesthetic Refinement:** Replaced solid `bg-card-warm` sections with translucent `bg-background/80 dark:bg-background/70 backdrop-blur-xl` glass surfaces for better contrast — the body's gradient + grid pattern shows through with clear separation. Updated all inner sub-sections to `bg-muted/70 dark:bg-muted/50` (tinted, not white) for proper visibility. Updated clickable items to `bg-muted/60 hover:bg-muted/80`. Updated nav header to match glass scheme.
 
 - Installed and configured shadcn ui
 - Installed react-icons

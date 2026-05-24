@@ -58,7 +58,7 @@ export default function H2HFilter() {
             <select
               value={h2hThreshold}
               onChange={(e) => setH2hThreshold(e.target.value as any)}
-              className="w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150 cursor-pointer"
+              className="w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-muted/60 dark:bg-muted/40 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150 cursor-pointer"
             >
               {H2H_THRESHOLDS.map((t) => (
                 <option key={t.value} value={t.value}>

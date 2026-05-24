@@ -50,7 +50,7 @@ export default function StrategyFilters() {
             onChange={(e) => setFrequency(e.target.value)}
             className={cn(
               "w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150",
-              presetLocked ? "opacity-60 cursor-not-allowed bg-muted/10" : "cursor-pointer"
+              presetLocked ? "opacity-60 cursor-not-allowed" : "cursor-pointer"
             )}
           >
             {FREQUENCIES.map((freq) => (
@@ -74,7 +74,7 @@ export default function StrategyFilters() {
             disabled={presetLocked}
             onChange={(e) => setScope(e.target.value)}
             className={cn(
-              "w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-card text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150",
+              "w-full h-10 px-3 py-1.5 rounded-lg border border-border/30 bg-muted/60 dark:bg-muted/40 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary hover:border-border/60 transition-colors duration-150",
               presetLocked ? "opacity-60 cursor-not-allowed bg-muted/10" : "cursor-pointer"
             )}
           >
@@ -93,7 +93,7 @@ export default function StrategyFilters() {
       </div>
 
       {/* Target Picks Selector */}
-      <div className="w-full p-4 rounded-xl bg-muted/60 dark:bg-muted/30">
+      <div className="w-full p-4 rounded-xl bg-muted/70 dark:bg-muted/50">
         <div className="space-y-2.5">
           <div className="flex items-center justify-between">
             <label className="text-xs font-semibold text-muted-foreground block font-sora">

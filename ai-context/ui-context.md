@@ -6,43 +6,45 @@
 
 ### Light Mode
 
-| Token                | Value     |
-| -------------------- | --------- |
-| Background           | `#F8FAFC` |
-| Background Secondary | `#F1F5F9` |
-| Surface              | `#FFFFFF` |
-| Surface Elevated     | `#FFFFFF` |
-| Surface Hover        | `hover:bg-accent` |
-| Text Primary         | `#0F172A` |
-| Text Secondary       | `#64748B` |
-| Border / Divider     | `#E2E8F0` |
-| Accent               | `#F97316` |
-| Accent Hover         | `#EA6C0A` |
-| Accent Light         | `#FFEDD5` |
-| Success              | `#10B981` |
-| Warning              | `#F59E0B` |
-| Danger               | `#DC2626` |
+| Token                | Value          |
+| -------------------- | -------------- |
+| Background           | `#F1F5F9`      |
+| Background Secondary | `#E2E8F0`      |
+| Surface              | `#FFFFFF`      |
+| Glass Surface        | `bg-card/95 backdrop-blur-xl` |
+| Surface Elevated     | `#FFFFFF`      |
+| Surface Hover        | `hover:bg-muted/60` |
+| Text Primary         | `#0F172A`      |
+| Text Secondary       | `#64748B`      |
+| Border / Divider     | `#CBD5E1`      |
+| Accent               | `#F97316`      |
+| Accent Hover         | `#EA6C0A`      |
+| Accent Light         | `#FFEDD5`      |
+| Success              | `#10B981`      |
+| Warning              | `#F59E0B`      |
+| Danger               | `#DC2626`      |
 
 ---
 
 ### Dark Mode
 
-| Token                | Value     |
-| -------------------- | --------- |
-| Background           | `#0B0F19` |
-| Background Secondary | `#1E293B` |
-| Surface              | `#141B2B` |
-| Surface Elevated     | `#141B2B` |
-| Surface Hover        | `hover:bg-accent` |
-| Text Primary         | `#F8FAFC` |
-| Text Secondary       | `#94A3B8` |
-| Border / Divider     | `#273549` |
-| Accent               | `#F97316` |
-| Accent Hover         | `#FB923C` |
-| Accent Light         | `#FFEDD5` |
-| Success              | `#10B981` |
-| Warning              | `#F59E0B` |
-| Danger               | `#EF4444` |
+| Token                | Value          |
+| -------------------- | -------------- |
+| Background           | `#020617`      |
+| Background Secondary | `#1E293B`      |
+| Surface              | `#0F172A`      |
+| Glass Surface        | `bg-card/90 backdrop-blur-xl` |
+| Surface Elevated     | `#0F172A`      |
+| Surface Hover        | `hover:bg-muted/60` |
+| Text Primary         | `#F8FAFC`      |
+| Text Secondary       | `#94A3B8`      |
+| Border / Divider     | `#334155`      |
+| Accent               | `#F97316`      |
+| Accent Hover         | `#FB923C`      |
+| Accent Light         | `#FFEDD5`      |
+| Success              | `#10B981`      |
+| Warning              | `#F59E0B`      |
+| Danger               | `#EF4444`      |
 
 ---
 
@@ -89,6 +91,9 @@
 - **Selection indicators:** Use `ring-1 ring-primary/50 bg-primary/5` — never `shadow-[0_0_0_1px_...]`
 - **Press feedback:** `active:scale-[0.97-0.98]` on interactive cards/buttons
 - **Transitions:** `transition-[specific-props] duration-150` — never `transition: all`
+- **Card contrast:** Strategy sections use `bg-card/95 dark:bg-card/90` with `backdrop-blur-xl` for strong contrast against the main background while preserving a glass aesthetic. Inner subsections use `bg-muted/70 dark:bg-muted/50` (tinted, not white) for clear visibility and separation.
+- **Nav bar:** Uses `bg-background/50 dark:bg-background/40` with `backdrop-blur-xl` to match the glass scheme while remaining translucent.
+- **Clickable items:** Use `bg-muted/60 hover:bg-muted/80` for interactive cards/buttons. Selected state uses `ring-1 ring-primary/50 bg-primary/5`.
 
 ---
 
@@ -152,7 +157,7 @@
 - **Grid**: `grid-cols-1 lg:grid-cols-[1fr_340px]`
 - Mobile: tab switcher (Configure Strategy / Your Slip)
 - Desktop: main content area + 340px sidebar for SlipPanel
-- Workspace card: `bg-card border border-border/30 rounded-xl shadow-[0_1px_3px_0_rgba(0,0,0,0.04)]`
+- Workspace card: `bg-background/50 dark:bg-background/40 backdrop-blur-xl border border-border/30 rounded-xl shadow-sm` with hover effects
 - Section dividers: `.section-divider` gradient class
 
 ---

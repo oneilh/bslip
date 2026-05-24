@@ -10,7 +10,7 @@ export default function Header() {
   const { user, isLoading, openModal } = useAuth();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl backdrop-saturate-150 border-b border-border/20">
+    <header className="sticky top-0 z-50 w-full bg-background/50 dark:bg-background/40 backdrop-blur-xl backdrop-saturate-150 border-b border-border/30 shadow-sm">
       <div className="flex h-16 items-center px-5 md:px-8 max-w-[1360px] mx-auto">
         {/* Left: Logo */}
         <div className="flex items-center gap-2 w-1/3">

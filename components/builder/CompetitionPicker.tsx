@@ -66,7 +66,7 @@ export default function CompetitionPicker() {
                 "relative flex flex-col justify-between p-3.5 rounded-xl border text-left transition-all duration-200",
                 "h-24 select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                 league.active
-                  ? "cursor-pointer bg-card hover:bg-accent active:scale-[0.97]"
+                  ? "cursor-pointer bg-muted/40 hover:bg-muted/60 active:scale-[0.97]"
                   : "bg-muted/10 border-border/30 opacity-50 cursor-not-allowed",
                 isSelected && league.active
                   ? "ring-1 ring-primary/50 bg-primary/5 border-primary/30"

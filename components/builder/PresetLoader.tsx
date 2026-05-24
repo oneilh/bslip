@@ -76,7 +76,7 @@ export default function PresetLoader() {
                 // Reload the preset values but unlock
                 applyPresetAndCustomize(activePreset);
               }}
-              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 bg-card hover:bg-accent border border-border/30 rounded-lg font-semibold text-foreground transition-colors duration-150 cursor-pointer text-[11px]"
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 bg-muted/60 hover:bg-muted/80 border border-border/30 rounded-lg font-semibold text-foreground transition-colors duration-150 cursor-pointer text-[11px]"
             >
               <LuShuffle className="h-3 w-3" />
               Customize Preset
@@ -84,7 +84,7 @@ export default function PresetLoader() {
             <button
               type="button"
               onClick={clearPreset}
-              className="flex items-center justify-center gap-1 px-3 py-1.5 bg-card hover:bg-accent border border-border/30 rounded-lg font-semibold text-muted-foreground transition-colors duration-150 cursor-pointer text-[11px]"
+              className="flex items-center justify-center gap-1 px-3 py-1.5 bg-muted/60 hover:bg-muted/80 border border-border/30 rounded-lg font-semibold text-muted-foreground transition-colors duration-150 cursor-pointer text-[11px]"
             >
               <LuLockOpen className="h-3 w-3" />
               Clear
@@ -113,7 +113,7 @@ export default function PresetLoader() {
                   ? "ring-1 ring-primary/40 bg-primary/5 border-primary/20"
                   : presetLocked
                   ? "border-border/20 bg-muted/10 opacity-50 cursor-not-allowed"
-                  : "border-border/40 bg-muted/30 hover:bg-muted/50",
+                  : "border-border/40 bg-muted/40 hover:bg-muted/60",
                 !presetLocked && !isActive && "cursor-pointer"
               )}
             >

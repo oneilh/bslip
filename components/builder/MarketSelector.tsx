@@ -49,7 +49,7 @@ export default function MarketSelector() {
         <h3 className="font-semibold text-base font-sora">Choose Market Mode</h3>
         
         {/* Toggle Mode Button Group */}
-        <div className="inline-flex rounded-lg p-0.5 bg-muted ml-auto">
+        <div className="inline-flex rounded-lg p-0.5 bg-muted/80 dark:bg-muted/50 backdrop-blur-sm ml-auto">
           <button
             type="button"
             disabled={presetLocked}
@@ -57,7 +57,7 @@ export default function MarketSelector() {
             className={cn(
               "px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-150",
               marketMode === "single"
-                ? "bg-card text-foreground shadow-sm"
+                ? "bg-background/70 dark:bg-background/60 backdrop-blur-sm text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground disabled:opacity-50"
             )}
           >
@@ -82,7 +82,7 @@ export default function MarketSelector() {
       </div>
 
       {/* Mode explanation — left accent stripe */}
-      <div className="flex items-start gap-2.5 p-3 bg-muted/50 border-l-2 border-primary/40 rounded-r-xl text-xs text-muted-foreground">
+      <div className="flex items-start gap-2.5 p-3 bg-muted/50 dark:bg-muted/30 border-l-2 border-l-primary/40 rounded-r-xl text-xs text-muted-foreground">
         <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-muted shrink-0 mt-0.5">
           <LuInfo className="h-3 w-3" />
         </span>
@@ -116,7 +116,7 @@ export default function MarketSelector() {
               className={cn(
                 "flex flex-col p-3.5 rounded-xl border text-left transition-all duration-200",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary select-none",
-                isDisabled ? "cursor-not-allowed opacity-70" : "cursor-pointer bg-card hover:bg-accent active:scale-[0.97]",
+                isDisabled ? "cursor-not-allowed opacity-70" : "cursor-pointer bg-muted/40 hover:bg-muted/60 active:scale-[0.97]",
                 isSelected
                   ? "ring-1 ring-primary/50 bg-primary/5 border-primary/30"
                   : "border-border/30"

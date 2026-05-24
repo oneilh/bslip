@@ -33,14 +33,14 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* Mobile/Tablet Tab Switcher — pill style, no border */}
-      <div className="lg:hidden flex rounded-xl p-1 bg-muted shrink-0">
+      <div className="lg:hidden flex rounded-xl p-1 bg-muted/80 dark:bg-muted/50 backdrop-blur-md shrink-0">
         <button
           type="button"
           onClick={() => setActiveTab("configure")}
           className={cn(
             "flex-1 py-2.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer select-none",
             activeTab === "configure"
-              ? "bg-card text-foreground shadow-sm"
+              ? "bg-background/70 dark:bg-background/60 backdrop-blur-sm text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
           )}
         >
@@ -52,7 +52,7 @@ export default function Home() {
           className={cn(
             "flex-1 py-2.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer select-none flex items-center justify-center gap-1.5",
             activeTab === "slip"
-              ? "bg-card text-foreground shadow-sm"
+              ? "bg-background/70 dark:bg-background/60 backdrop-blur-sm text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
           )}
         >
@@ -87,7 +87,7 @@ export default function Home() {
           {/* Strategy Workspace Sections */}
           <div className="flex flex-col gap-6 w-full">
             {/* Quick Presets Section */}
-            <section className="bg-card dark:bg-card border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
+            <section className="bg-card/95 dark:bg-card/90 backdrop-blur-xl border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10">
                 <PresetLoader />
@@ -95,7 +95,7 @@ export default function Home() {
             </section>
             
             {/* Competition Picker Section */}
-            <section className="bg-card dark:bg-card border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
+            <section className="bg-card/95 dark:bg-card/90 backdrop-blur-xl border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10">
                 <CompetitionPicker />
@@ -103,7 +103,7 @@ export default function Home() {
             </section>
             
             {/* Market Selector Section */}
-            <section className="bg-card dark:bg-card border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
+            <section className="bg-card/95 dark:bg-card/90 backdrop-blur-xl border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10">
                 <MarketSelector />
@@ -111,7 +111,7 @@ export default function Home() {
             </section>
             
             {/* Strategy Filters Section */}
-            <section className="bg-card dark:bg-card border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
+            <section className="bg-card/95 dark:bg-card/90 backdrop-blur-xl border border-border/30 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md hover:border-primary/40">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="relative z-10">
                 <StrategyFilters />
@@ -119,7 +119,7 @@ export default function Home() {
             </section>
 
             {/* Mobile/Tablet Bottom Generate Button */}
-            <div className="lg:hidden p-4 bg-card/80 dark:bg-card/40 backdrop-blur-md border border-border/60 rounded-xl shadow-sm space-y-3">
+            <div className="lg:hidden p-4 bg-background/80 dark:bg-background/70 backdrop-blur-xl border border-border/60 rounded-xl shadow-sm space-y-3">
               {generationError && (
                 <div className="flex items-start gap-2.5 p-3 bg-red-500/10 border border-red-500/20 text-red-600 rounded-xl text-xs">
                   <LuTriangleAlert className="h-4 w-4 shrink-0 mt-0.5" />
