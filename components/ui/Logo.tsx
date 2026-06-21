@@ -9,7 +9,7 @@ interface LogoProps {
 export function Logo({ className, withText = true }: LogoProps) {
   return (
     <Link href="/" className={`flex items-center gap-2.5 group ${className || ""}`}>
-      <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 group-hover:shadow-primary/30 group-hover:-translate-y-0.5 transition-all duration-300">
+      <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-primary/15 text-primary group-hover:bg-primary/20 transition-all duration-300">
         <LuZap className="h-4 w-4 fill-current" />
       </div>
       {withText && (
