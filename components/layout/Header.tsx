@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { LuHistory, LuMoon, LuCoins, LuZap } from "react-icons/lu";
+import { LuHistory, LuMoon, LuCoins } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { UserMenu } from "@/components/auth/UserMenu";
+import { Logo } from "@/components/ui/Logo";
 
 export default function Header() {
   const { user, isLoading, openModal } = useAuth();
@@ -12,17 +13,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-card/80 backdrop-blur-2xl backdrop-saturate-150 border-b border-border/40">
       <div className="flex h-16 items-center px-5 md:px-8 max-w-[1360px] mx-auto">
-        
         {/* Left: Logo */}
         <div className="flex items-center gap-2 w-1/3">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 group-hover:shadow-primary/30 group-hover:-translate-y-0.5 transition-all duration-300">
-              <LuZap className="h-4 w-4 fill-current" />
-            </div>
-            <span className="font-bold text-xl tracking-tight font-sora text-foreground">
-              bslip<span className="text-primary">.</span>
-            </span>
-          </Link>
+          <Logo />
         </div>
 
         {/* Center: Empty */}
@@ -37,7 +30,9 @@ export default function Header() {
               {/* Credits */}
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-muted/60 border border-border/50 rounded-full text-sm font-medium text-foreground cursor-default transition-colors hover:bg-muted">
                 <LuCoins className="h-4 w-4 text-primary" />
-                <span className="font-jetbrains-mono text-xs font-bold">1,200</span>
+                <span className="font-jetbrains-mono text-xs font-bold">
+                  1,200
+                </span>
               </div>
 
               {/* History */}

@@ -130,6 +130,7 @@
 
 | Component             | Where it's used                          |
 | --------------------- | ---------------------------------------- |
+| `Logo`                | Header                                   |
 | `Button`              | Header, Slip Panel, Page, AuthModal      |
 | `Card`                | shadcn/ui base card (available but unused directly) |
 | `ViewSlipMobile`      | Mobile floating bar (generated slip only) |
