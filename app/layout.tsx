@@ -40,7 +40,7 @@ export default function RootLayout({
         <AuthProvider>
           <SlipBuilderProvider>
             <Header />
-            
+
             {/* Main Application Area */}
             <main className="flex-1 w-full max-w-[1360px] mx-auto px-5 md:px-8 py-6 md:py-8 flex flex-col">
               {children}

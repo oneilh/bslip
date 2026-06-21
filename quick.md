@@ -1,0 +1,2 @@
+i love the accessibility feature you have that tells what is done wrong totally or what could be fixed especally that part where you click to locate the part of the ui
+i would like for a feature that when you make changes you get the list of changes or diff of changes that where made that you can copy and give to an ai agent if possible a screenshot of the original parts where the changes should be made like the where the tab web does for copilot chat in vscode the screenshot should be saved in clipboard it should also be done for the accesiblity part when u make the fix
