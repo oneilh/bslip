@@ -61,21 +61,14 @@ export function UserMenu() {
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
-        style={{ backgroundColor: "#F97316" }}
         className={[
-          // Size: 36px visual, but padded to meet 44px touch target
           "h-9 w-9 rounded-full",
-          "text-white text-sm font-bold leading-none",
+          "bg-primary/15 hover:bg-primary/20 text-primary text-sm font-bold leading-none",
           "flex items-center justify-center select-none",
-          // Focus ring for keyboard nav (ui-ux-pro-max §1)
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#F97316]",
-          // Scale press feedback + smooth opacity hover (ui-animation: 150ms ease-out)
-          "transition-[transform,opacity] duration-150 ease-out",
-          "hover:opacity-90 active:scale-95",
-          // Cursor pointer (ui-ux-pro-max §2)
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary",
+          "transition-all duration-150 ease-out",
+          "active:scale-95",
           "cursor-pointer",
-          // Ring to lift it off the header background in all themes
-          "ring-2 ring-white/20",
         ].join(" ")}
         title={email}
       >
